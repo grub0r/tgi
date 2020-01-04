@@ -9,7 +9,8 @@ namespace tgi01
 
             int[] toBeSorted = {13, 25, 4, 15, 9, 16, 19};
             
-            PrintIntegerArray(BubbleSort(toBeSorted));
+            PrintIntegerArray(BubbleSortRegular(toBeSorted));
+            PrintIntegerArray(BubbleSortAdvanced(toBeSorted));
 
             Console.ReadLine();
 
@@ -42,7 +43,27 @@ namespace tgi01
 
         }
 
-        private static int[] BubbleSort(int[] toBeSorted)
+        private static int[] BubbleSortAdvanced(int[] toBeSorted)
+        {
+
+            for (int i = 0; i < toBeSorted.Length; i++)
+            {
+                for (int j = 0; j < (toBeSorted.Length - 1) - j; j++)
+                {
+                    if (toBeSorted[j] > toBeSorted[j+1])
+                    {
+                        int tmp = toBeSorted[j];
+                        toBeSorted[j] = toBeSorted[j + 1];
+                        toBeSorted[j + 1] = tmp;
+                    }
+                }
+            }
+
+            return toBeSorted;
+
+        }
+        
+        private static int[] BubbleSortRegular(int[] toBeSorted)
         {
 
             for (int i = 0; i < toBeSorted.Length; i++)
