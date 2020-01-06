@@ -11,6 +11,7 @@ namespace tgi01
             
             PrintIntegerArray(BubbleSortRegular(toBeSorted));
             PrintIntegerArray(BubbleSortAdvanced(toBeSorted));
+            PrintIntegerArray(SelectionSort(toBeSorted));
 
             Console.ReadLine();
 
@@ -86,6 +87,32 @@ namespace tgi01
 
             return toBeSorted;
 
+        }
+
+        private static int[] SelectionSort(int[] toBeSorted)
+        {
+
+            for (int i = 0; i < toBeSorted.Length; i++)
+            {
+                int minIndex = i;
+                for (int j = i+1; j < toBeSorted.Length - 1; j++)
+                {
+                    if (toBeSorted[j] < toBeSorted[minIndex])
+                    {
+                        minIndex = j;
+                    }
+                }
+
+                int tmp = toBeSorted[i];
+                toBeSorted[i] = toBeSorted[minIndex];
+                toBeSorted[minIndex] = tmp;
+                
+
+            }
+            
+            
+
+            return toBeSorted;
         }
     }
 }
